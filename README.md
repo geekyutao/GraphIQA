@@ -16,12 +16,10 @@ The paper can be found [here](https://arxiv.org/abs/2103.07666). The code is com
 Please cite us if you find this work helps.
 
 ```
-@misc{sun2021graphiqalearning,
-      title={GraphIQA:Learning Distortion Graph Representations for Blind Image Quality Assessment}, 
-      author={Simeng Sun and Tao Yu and Jiahua Xu and Jianxin Lin and Wei Zhou and Zhibo Chen},
-      year={2021},
-      eprint={2103.07666},
-      archivePrefix={arXiv},
-      primaryClass={cs.MM}
+@article{sun2021graphiqa,
+  title={GraphIQA: Learning Distortion Graph Representations for Blind Image Quality Assessment},
+  author={Sun, Simeng and Yu, Tao and Xu, Jiahua and Lin, Jianxin and Zhou, Wei and Chen, Zhibo},
+  journal={arXiv preprint arXiv:2103.07666},
+  year={2021}
 }
 ```
