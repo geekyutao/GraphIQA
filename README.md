@@ -1,5 +1,6 @@
 # GraphIQA
 GraphIQA: Learning Distortion Graph Representations for Blind Image Quality Assessment
+![image](https://github.com/geekyutao/GraphIQA/blob/main/fig/framework.png)
 
 ## Introduction
 The paper can be found [here](https://arxiv.org/abs/2103.07666). The code is coming soon.
