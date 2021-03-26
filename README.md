@@ -2,8 +2,8 @@
 GraphIQA: Learning Distortion Graph Representations for Blind Image Quality Assessment
 ![image](https://github.com/geekyutao/GraphIQA/blob/main/fig/framework.png)
 > [**GraphIQA**](https://arxiv.org/abs/2103.07666),            
-> Simeng Sun, Tao Yu, Jiahua Xu, Jianxin Lin, Wei Zhou, Zhibo Chen,        
-> *arXiv technical report ([arXiv:2103.07666](https://arxiv.org/abs/2103.07666))*  
+> **Simeng Sun***, **Tao Yu***(Equal contribution), Jiahua Xu, Jianxin Lin, Wei Zhou, Zhibo Chen,        
+> *arXiv preprint ([arXiv:2103.07666](https://arxiv.org/abs/2103.07666))*  
 The code is coming soon.
 
 ## Abstract
@@ -11,9 +11,9 @@ Learning-based blind image quality assessment (BIQA) methods have recently drawn
 
 ## Preparation
 
-## Train GraphIQA
+## Train
 
-## Test GraphIQA
+## Test
 
 ## Visualization
 
