@@ -1,0 +1,5 @@
+scipy==1.6.3
+openpyxl
+pandas
+lmdb
+tensorboardX
