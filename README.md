@@ -58,7 +58,7 @@ Some available options:
 * `--gpu_ids`: Visible devices.
 * `--bs`: Batch size.
 
-## Cite Us
+## Cite us
 Please cite us if you find this work helps.
 
 ```
