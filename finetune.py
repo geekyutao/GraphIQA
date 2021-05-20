@@ -186,7 +186,7 @@ def main(args):
             writer.add_scalar('Total loss', ma_loss / count, s)
 
         # Test
-        eval_row, eval_row_plcc = utils.evaluate_finetune(net, s, args.patch_num, loader=test_loaders['all'])
+        eval_row, eval_row_plcc = utils.evaluate_finetune(args, net, s, loader=test_loaders['all'])
         test_avg_srocc = eval_row[-1]
         test_avg_plcc = eval_row_plcc[-1]
 
