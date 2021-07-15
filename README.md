@@ -32,7 +32,7 @@ When pretraining GraphIQA model from scratch on kadid10k dataset, you need to ru
 ~~~
 python pretrain.py --dataset kadid-P
 ~~~
-When pretraining GraphIQA model from scratch on kadid10k dataset, you need to run:
+When pretraining GraphIQA model from scratch on kadis700k dataset, you need to run:
 ~~~
 python pretrain.py --dataset kadis-P
 ~~~
