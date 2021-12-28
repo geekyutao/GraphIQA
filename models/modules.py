@@ -72,8 +72,8 @@ class DomainLevelGragh(nn.Module):
         if self.pretrain:
             eg_emb_eg = eg_emb.view(do_emb.size(0), do_emb.size(0), -1).mean(1)  # (N^2, K) --> (N, N, K) --> (N, K)
         else:
-            eg_emb = eg_emb.view(do_emb.size(0), do_emb.size(0), -1)
-            eg_emb_eg = (eg_emb * torch.eye(do_emb.size(0)).unsqueeze(-1).expand(-1,-1,eg_emb,size[-1])).sum(1)
+            eg_emb_ = eg_emb.view(do_emb.size(0), do_emb.size(0), -1)
+            eg_emb_eg = (eg_emb_ * torch.eye(do_emb.size(0)).cuda().unsqueeze(-1).expand(-1,-1,eg_emb.size(-1))).sum(1)
         mean, scale = self.hyperpred(torch.cat([do_emb, eg_emb_eg], -1))
         level_pred = self._level_vae(mean, scale)  # (N^2, 1)
 
