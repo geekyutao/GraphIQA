@@ -78,7 +78,7 @@ def main(args):
         train_iterators[t] = iterator
 
     # Model
-    net = Reg_Domain(do_emb_size=args.dosz, eg_emb_size=args.egsz)
+    net = Reg_Domain(do_emb_size=args.dosz, eg_emb_size=args.egsz, pretrain=True)
     net = net.to(device)
     if args.gpus > 1:
         net = torch.nn.DataParallel(net, device_ids=gpus_list)
