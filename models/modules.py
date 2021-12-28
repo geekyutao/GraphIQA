@@ -36,8 +36,9 @@ class ResnetFeatureExtractor(nn.Module):
 
 # DualGragh
 class DomainLevelGragh(nn.Module):
-    def __init__(self, in_dim, do_emb_size, eg_emb_size):
+    def __init__(self, in_dim, do_emb_size, eg_emb_size, pretrain=True):
         super(DomainLevelGragh, self).__init__()
+        self.pretrain = pretrain
         self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
 
         self.gcn_v = GCN_V(in_dim=in_dim, out_dim=in_dim)
@@ -68,7 +69,11 @@ class DomainLevelGragh(nn.Module):
         eg_emb = self.gcn_e(X)  # GCN --> (N^2, K)
 
         # level prediction
-        eg_emb_eg = eg_emb.view(do_emb.size(0), do_emb.size(0), -1).mean(1)  # (N^2, K) --> (N, N, K) --> (N, K)
+        if self.pretrain:
+            eg_emb_eg = eg_emb.view(do_emb.size(0), do_emb.size(0), -1).mean(1)  # (N^2, K) --> (N, N, K) --> (N, K)
+        else:
+            eg_emb = eg_emb.view(do_emb.size(0), do_emb.size(0), -1)
+            eg_emb_eg = (eg_emb * torch.eye(do_emb.size(0)).unsqueeze(-1).expand(-1,-1,eg_emb,size[-1])).sum(1)
         mean, scale = self.hyperpred(torch.cat([do_emb, eg_emb_eg], -1))
         level_pred = self._level_vae(mean, scale)  # (N^2, 1)
 
@@ -84,7 +89,9 @@ class DomainLevelGragh(nn.Module):
 
     def _level_vae(self,mean,scale):
         # (N, P)
-        noise = torch.randn(mean.size()).cuda()
+        # noise = torch.randn(mean.size()).cuda()
+        noise = torch.cuda.FloatTensor(mean.size()) if torch.cuda.is_available() else torch.FloatTensor(mean.size())
+        torch.randn(mean.size(), out=noise)
         level_pred = mean + noise * scale
         return level_pred
 
