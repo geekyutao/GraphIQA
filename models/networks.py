@@ -11,7 +11,7 @@ from .modules import ResnetFeatureExtractor, DomainLevelGragh, GCN
 
 # DualGragh Regression
 class Reg_Domain(nn.Module):
-    def __init__(self, do_emb_size, eg_emb_size):
+    def __init__(self, do_emb_size, eg_emb_size, pretrain):
         super(Reg_Domain, self).__init__()
 
         self.extractor = ResnetFeatureExtractor(layer=50, pretrained=True)
@@ -20,7 +20,7 @@ class Reg_Domain(nn.Module):
             # print(key)
             p.requires_grad = False
 
-        self.domainlevelgraph = DomainLevelGragh(2048, do_emb_size, eg_emb_size)
+        self.domainlevelgraph = DomainLevelGragh(2048, do_emb_size, eg_emb_size, pretrain)
 
         self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
         self.predictor = nn.Sequential(
