@@ -70,7 +70,7 @@ def main(args):
         writer = SummaryWriter(log_dir=tb_name)
 
     # Model
-    net = Reg_Domain(do_emb_size=args.dosz, eg_emb_size=args.egsz)
+    net = Reg_Domain(do_emb_size=args.dosz, eg_emb_size=args.egsz, pretrain=False)
     # print(net)
     net = net.to(device)
     if args.gpus > 1:
