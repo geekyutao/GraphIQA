@@ -44,7 +44,7 @@ Some available options:
 * `--bs`: Batch size.
 * `--margin`: Margin for triplet loss.
 
-The pretrained model will be uploaded soon.
+The pretrained model is released [Model](https://drive.google.com/file/d/1mvnfFC4v7P80KhcN2IWCAdQa3y20B_g_/view?usp=sharing).
 
 When finetuning GraphIQA model on target dataset, you need to run:
 ~~~
