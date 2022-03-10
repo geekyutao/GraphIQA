@@ -242,7 +242,7 @@ if __name__ == '__main__':
     argparser.add_argument('--do_w', type=float, help='weight of domain triplet loss', default=0.5)
 
     argparser.add_argument('--dosz', default=256, type=int, help='Domain node embedding size')
-    argparser.add_argument('--egsz', default=64, type=int, help='Domain node embedding size')
+    argparser.add_argument('--egsz', default=16, type=int, help='Domain node embedding size')
 
 
     args = argparser.parse_args()
